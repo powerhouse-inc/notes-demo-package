@@ -1,0 +1,27 @@
+{
+    "name": "NotesDemo",
+    "description": "",
+    "category": "Productivity",
+    "publisher": {
+        "name": "",
+        "url": ""
+    },
+    "documentModels": [
+        {
+            "id": "powerhouse/notes",
+            "name": "Notes"
+        }
+    ],
+    "editors": [
+        {
+            "id": "notes-editor",
+            "name": "Notes Editor",
+            "documentTypes": [
+                "powerhouse/notes"
+            ]
+        }
+    ],
+    "apps": [],
+    "subgraphs": [],
+    "importScripts": []
+}
