@@ -21,7 +21,13 @@
             ]
         }
     ],
-    "apps": [],
+    "apps": [
+        {
+            "id": "notes-app",
+            "name": "Notes App",
+            "driveEditor": "notes-app"
+        }
+    ],
     "subgraphs": [],
     "importScripts": []
 }

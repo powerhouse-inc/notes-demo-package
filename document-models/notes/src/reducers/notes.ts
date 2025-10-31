@@ -52,7 +52,7 @@ export const reducer: NotesNotesOperations = {
   editTodoOperation(state, action) {
     const note = state.notes.find((note) => note.id === action.input.id);
     if (!note) {
-      throw new Error(`Node with id ${action.input.id} not found`);
+      throw new Error(`Note with id ${action.input.id} not found`);
     }
 
     if (!("done" in note)) {
