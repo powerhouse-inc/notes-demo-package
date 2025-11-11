@@ -1,20 +1,27 @@
 import { createAction } from "document-model/core";
 import {
-  z,
-  type AddTextInput,
-  type AddTodoInput,
-  type EditNoteInput,
-  type EditTextInput,
-  type EditTodoInput,
-  type DeleteNoteInput,
+  AddTextInputSchema,
+  AddTodoInputSchema,
+  EditNoteInputSchema,
+  EditTextInputSchema,
+  EditTodoInputSchema,
+  DeleteNoteInputSchema,
+} from "../schema/zod.js";
+import type {
+  AddTextInput,
+  AddTodoInput,
+  EditNoteInput,
+  EditTextInput,
+  EditTodoInput,
+  DeleteNoteInput,
 } from "../types.js";
-import {
-  type AddTextAction,
-  type AddTodoAction,
-  type EditNoteAction,
-  type EditTextAction,
-  type EditTodoAction,
-  type DeleteNoteAction,
+import type {
+  AddTextAction,
+  AddTodoAction,
+  EditNoteAction,
+  EditTextAction,
+  EditTodoAction,
+  DeleteNoteAction,
 } from "./actions.js";
 
 export const addText = (input: AddTextInput) =>
@@ -22,7 +29,7 @@ export const addText = (input: AddTextInput) =>
     "ADD_TEXT",
     { ...input },
     undefined,
-    z.AddTextInputSchema,
+    AddTextInputSchema,
     "global",
   );
 
@@ -31,7 +38,7 @@ export const addTodo = (input: AddTodoInput) =>
     "ADD_TODO",
     { ...input },
     undefined,
-    z.AddTodoInputSchema,
+    AddTodoInputSchema,
     "global",
   );
 
@@ -40,7 +47,7 @@ export const editNote = (input: EditNoteInput) =>
     "EDIT_NOTE",
     { ...input },
     undefined,
-    z.EditNoteInputSchema,
+    EditNoteInputSchema,
     "global",
   );
 
@@ -49,7 +56,7 @@ export const editText = (input: EditTextInput) =>
     "EDIT_TEXT",
     { ...input },
     undefined,
-    z.EditTextInputSchema,
+    EditTextInputSchema,
     "global",
   );
 
@@ -58,7 +65,7 @@ export const editTodo = (input: EditTodoInput) =>
     "EDIT_TODO",
     { ...input },
     undefined,
-    z.EditTodoInputSchema,
+    EditTodoInputSchema,
     "global",
   );
 
@@ -67,6 +74,6 @@ export const deleteNote = (input: DeleteNoteInput) =>
     "DELETE_NOTE",
     { ...input },
     undefined,
-    z.DeleteNoteInputSchema,
+    DeleteNoteInputSchema,
     "global",
   );

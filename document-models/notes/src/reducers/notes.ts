@@ -1,6 +1,6 @@
-import type { NotesNotesOperations } from "../../gen/notes/operations.js";
+import type { NotesNotesOperations } from "@powerhousedao/notes-demo-package/document-models/notes";
 
-export const reducer: NotesNotesOperations = {
+export const notesNotesOperations: NotesNotesOperations = {
   addTextOperation(state, action) {
     state.notes.push({
       id: action.input.id,

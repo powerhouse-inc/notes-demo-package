@@ -1,16 +1,20 @@
 import type { BaseSubgraph } from "@powerhousedao/reactor-api";
 import { addFile } from "document-drive";
+import { setName } from "document-model";
 import {
   actions,
-  type AddTextInput,
-  type AddTodoInput,
-  type EditNoteInput,
-  type EditTextInput,
-  type EditTodoInput,
-  type DeleteNoteInput,
-  type NotesDocument,
-} from "../../document-models/notes/index.js";
-import { setName } from "document-model";
+  notesDocumentType,
+} from "@powerhousedao/notes-demo-package/document-models/notes";
+
+import type {
+  NotesDocument,
+  AddTextInput,
+  AddTodoInput,
+  EditNoteInput,
+  EditTextInput,
+  EditTodoInput,
+  DeleteNoteInput,
+} from "@powerhousedao/notes-demo-package/document-models/notes";
 
 export const getResolvers = (
   subgraph: BaseSubgraph,
@@ -69,7 +73,7 @@ export const getResolvers = (
             );
 
             return docs.filter(
-              (doc) => doc.header.documentType === "powerhouse/notes",
+              (doc) => doc.header.documentType === notesDocumentType,
             );
           },
         };
@@ -81,7 +85,7 @@ export const getResolvers = (
         args: { name: string; driveId?: string },
       ) => {
         const { driveId, name } = args;
-        const document = await reactor.addDocument("powerhouse/notes");
+        const document = await reactor.addDocument(notesDocumentType);
 
         if (driveId) {
           await reactor.addAction(
@@ -89,7 +93,7 @@ export const getResolvers = (
             addFile({
               name,
               id: document.header.id,
-              documentType: "powerhouse/notes",
+              documentType: notesDocumentType,
             }),
           );
         }

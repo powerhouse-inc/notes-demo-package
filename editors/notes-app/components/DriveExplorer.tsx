@@ -1,9 +1,9 @@
 import {
   Breadcrumbs,
-  Button,
   FileItem,
   FolderItem,
-} from "@powerhousedao/design-system";
+} from "@powerhousedao/design-system/connect";
+import { Button } from "@powerhousedao/design-system/ui";
 import {
   addFolder,
   isFileNodeKind,

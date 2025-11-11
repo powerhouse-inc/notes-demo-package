@@ -1,8 +1,8 @@
 import type { EditorModule } from "document-model";
-import { Editor } from "./editor.js";
+import { lazy } from "react";
 
-export const module: EditorModule = {
-  Component: Editor,
+export const NotesEditor: EditorModule = {
+  Component: lazy(() => import("./editor.js")),
   documentTypes: ["powerhouse/notes"],
   config: {
     id: "notes-editor",

@@ -3,22 +3,23 @@
  * - change it by adding new tests or modifying the existing ones
  */
 
-import { describe, it, expect, beforeEach } from "vitest";
-import utils, {
+import { describe, it, expect } from "vitest";
+import {
   initialGlobalState,
   initialLocalState,
+  createDocument,
 } from "../../gen/utils.js";
 
 describe("Notes Document Model", () => {
   it("should create a new Notes document", () => {
-    const document = utils.createDocument();
+    const document = createDocument();
 
     expect(document).toBeDefined();
     expect(document.header.documentType).toBe("powerhouse/notes");
   });
 
   it("should create a new Notes document with a valid initial state", () => {
-    const document = utils.createDocument();
+    const document = createDocument();
     expect(document.state.global).toStrictEqual(initialGlobalState);
     expect(document.state.local).toStrictEqual(initialLocalState);
   });

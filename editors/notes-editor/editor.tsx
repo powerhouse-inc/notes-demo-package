@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DocumentToolbar } from "@powerhousedao/design-system";
+import { DocumentToolbar } from "@powerhousedao/design-system/connect";
 import {
   setSelectedNode,
   useParentFolderForSelectedNode,
@@ -17,7 +17,7 @@ import { NoteList } from "./components/NoteList.js";
 import { TextNoteEditor } from "./components/TextNoteEditor.js";
 import { TodoNoteEditor } from "./components/TodoNoteEditor.js";
 
-export function Editor() {
+export default function Editor() {
   const [document, dispatch] = useSelectedNotesDocument();
   const [selectedNoteId, setSelectedNoteId] = useState<string | null>(null);
 
@@ -38,7 +38,7 @@ export function Editor() {
         title: "New Text Note",
         date: now,
         content: "",
-      })
+      }),
     );
     setSelectedNoteId(id);
   }
@@ -59,19 +59,19 @@ export function Editor() {
 
   function handleUpdateText(
     noteId: string,
-    updates: { title?: string; content?: string; date?: string }
+    updates: { title?: string; content?: string; date?: string },
   ) {
     dispatch(
       editText({
         id: noteId,
         ...updates,
-      })
+      }),
     );
   }
 
   function handleUpdateTodo(
     noteId: string,
-    updates: { title?: string; done?: boolean; date?: string }
+    updates: { title?: string; done?: boolean; date?: string },
   ) {
     dispatch(
       editTodo({

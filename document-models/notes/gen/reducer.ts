@@ -3,24 +3,28 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import type { StateReducer } from "document-model";
 import { isDocumentAction, createReducer } from "document-model/core";
-import type { NotesPHState } from "./types.js";
-import { z } from "./types.js";
+import type { NotesPHState } from "@powerhousedao/notes-demo-package/document-models/notes";
 
-import { reducer as NotesReducer } from "../src/reducers/notes.js";
+import { notesNotesOperations } from "../src/reducers/notes.js";
 
-export const stateReducer: StateReducer<NotesPHState> = (
-  state,
-  action,
-  dispatch,
-) => {
+import {
+  AddTextInputSchema,
+  AddTodoInputSchema,
+  EditNoteInputSchema,
+  EditTextInputSchema,
+  EditTodoInputSchema,
+  DeleteNoteInputSchema,
+} from "./schema/zod.js";
+
+const stateReducer: StateReducer<NotesPHState> = (state, action, dispatch) => {
   if (isDocumentAction(action)) {
     return state;
   }
 
   switch (action.type) {
     case "ADD_TEXT":
-      z.AddTextInputSchema().parse(action.input);
-      NotesReducer.addTextOperation(
+      AddTextInputSchema().parse(action.input);
+      notesNotesOperations.addTextOperation(
         (state as any)[action.scope],
         action as any,
         dispatch,
@@ -28,8 +32,8 @@ export const stateReducer: StateReducer<NotesPHState> = (
       break;
 
     case "ADD_TODO":
-      z.AddTodoInputSchema().parse(action.input);
-      NotesReducer.addTodoOperation(
+      AddTodoInputSchema().parse(action.input);
+      notesNotesOperations.addTodoOperation(
         (state as any)[action.scope],
         action as any,
         dispatch,
@@ -37,8 +41,8 @@ export const stateReducer: StateReducer<NotesPHState> = (
       break;
 
     case "EDIT_NOTE":
-      z.EditNoteInputSchema().parse(action.input);
-      NotesReducer.editNoteOperation(
+      EditNoteInputSchema().parse(action.input);
+      notesNotesOperations.editNoteOperation(
         (state as any)[action.scope],
         action as any,
         dispatch,
@@ -46,8 +50,8 @@ export const stateReducer: StateReducer<NotesPHState> = (
       break;
 
     case "EDIT_TEXT":
-      z.EditTextInputSchema().parse(action.input);
-      NotesReducer.editTextOperation(
+      EditTextInputSchema().parse(action.input);
+      notesNotesOperations.editTextOperation(
         (state as any)[action.scope],
         action as any,
         dispatch,
@@ -55,8 +59,8 @@ export const stateReducer: StateReducer<NotesPHState> = (
       break;
 
     case "EDIT_TODO":
-      z.EditTodoInputSchema().parse(action.input);
-      NotesReducer.editTodoOperation(
+      EditTodoInputSchema().parse(action.input);
+      notesNotesOperations.editTodoOperation(
         (state as any)[action.scope],
         action as any,
         dispatch,
@@ -64,8 +68,8 @@ export const stateReducer: StateReducer<NotesPHState> = (
       break;
 
     case "DELETE_NOTE":
-      z.DeleteNoteInputSchema().parse(action.input);
-      NotesReducer.deleteNoteOperation(
+      DeleteNoteInputSchema().parse(action.input);
+      notesNotesOperations.deleteNoteOperation(
         (state as any)[action.scope],
         action as any,
         dispatch,

@@ -1,4 +1,4 @@
-import { Button } from "@powerhousedao/design-system";
+import { Button } from "@powerhousedao/design-system/ui";
 import {
   showCreateDocumentModal,
   useAllowedDocumentModelModules,
