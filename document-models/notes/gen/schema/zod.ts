@@ -1,4 +1,4 @@
-import { z } from "zod";
+import * as z from "zod";
 import type {
   AddTextInput,
   AddTodoInput,
@@ -6,13 +6,14 @@ import type {
   EditNoteInput,
   EditTextInput,
   EditTodoInput,
+  INote,
   NotesState,
   Text,
   Todo,
 } from "./types.js";
 
 type Properties<T> = Required<{
-  [K in keyof T]: z.ZodType<T[K], any, T[K]>;
+  [K in keyof T]: z.ZodType<T[K]>;
 }>;
 
 type definedNonNullAny = {};
@@ -76,6 +77,14 @@ export function EditTodoInputSchema(): z.ZodObject<Properties<EditTodoInput>> {
   });
 }
 
+export function INoteSchema(): z.ZodObject<Properties<INote>> {
+  return z.object({
+    date: z.string().datetime(),
+    id: z.string(),
+    title: z.string(),
+  });
+}
+
 export function NoteSchema() {
   return z.union([TextSchema(), TodoSchema()]);
 }
@@ -83,7 +92,7 @@ export function NoteSchema() {
 export function NotesStateSchema(): z.ZodObject<Properties<NotesState>> {
   return z.object({
     __typename: z.literal("NotesState").optional(),
-    notes: z.array(NoteSchema()),
+    notes: z.array(z.lazy(() => NoteSchema())),
   });
 }
 

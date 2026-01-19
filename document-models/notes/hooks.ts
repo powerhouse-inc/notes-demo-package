@@ -1,15 +1,18 @@
 import type { DocumentDispatch } from "@powerhousedao/reactor-browser";
 import {
+  useDocumentById,
   useDocumentsInSelectedDrive,
   useDocumentsInSelectedFolder,
-  useDocumentById,
   useSelectedDocument,
 } from "@powerhousedao/reactor-browser";
 import type {
-  NotesDocument,
   NotesAction,
+  NotesDocument,
 } from "@powerhousedao/notes-demo-package/document-models/notes";
-import { isNotesDocument } from "./gen/document-schema.js";
+import {
+  assertIsNotesDocument,
+  isNotesDocument,
+} from "./gen/document-schema.js";
 
 /** Hook to get a Notes document by its id */
 export function useNotesDocumentById(
@@ -21,12 +24,14 @@ export function useNotesDocumentById(
 }
 
 /** Hook to get the selected Notes document */
-export function useSelectedNotesDocument():
-  | [NotesDocument, DocumentDispatch<NotesAction>]
-  | [undefined, undefined] {
+export function useSelectedNotesDocument(): [
+  NotesDocument,
+  DocumentDispatch<NotesAction>,
+] {
   const [document, dispatch] = useSelectedDocument();
-  if (!isNotesDocument(document)) return [undefined, undefined];
-  return [document, dispatch];
+
+  assertIsNotesDocument(document);
+  return [document, dispatch] as const;
 }
 
 /** Hook to get all Notes documents in the selected drive */

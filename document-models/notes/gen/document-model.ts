@@ -17,12 +17,12 @@ export const documentModel: DocumentModelGlobalState = {
         global: {
           schema:
             "type NotesState {\n  notes: [Note!]!\n}\n\ninterface INote {\n  id: OID!\n  title: String!\n  date: Date!\n}\n\ntype Text implements INote {\n  id: OID!\n  title: String!\n  date: Date!\n  content: String!\n}\n\ntype Todo implements INote {\n  id: OID!\n  title: String!\n  date: Date!\n  done: Boolean!\n}\n\nunion Note = Text | Todo",
-          initialValue: '"{\\n  \\"notes\\": []\\n}"',
+          initialValue: '{\n  "notes": []\n}',
           examples: [],
         },
         local: {
           schema: "",
-          initialValue: '""',
+          initialValue: "",
           examples: [],
         },
       },

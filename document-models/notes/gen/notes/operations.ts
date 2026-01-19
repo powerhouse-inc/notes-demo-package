@@ -1,13 +1,13 @@
 import { type SignalDispatch } from "document-model";
-import {
-  type AddTextAction,
-  type AddTodoAction,
-  type EditNoteAction,
-  type EditTextAction,
-  type EditTodoAction,
-  type DeleteNoteAction,
+import type {
+  AddTextAction,
+  AddTodoAction,
+  EditNoteAction,
+  EditTextAction,
+  EditTodoAction,
+  DeleteNoteAction,
 } from "./actions.js";
-import { type NotesState } from "../types.js";
+import type { NotesState } from "../types.js";
 
 export interface NotesNotesOperations {
   addTextOperation: (
