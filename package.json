@@ -1,6 +1,5 @@
 {
   "name": "@powerhousedao/notes-demo-package",
-  "description": "",
   "version": "1.0.4",
   "license": "AGPL-3.0-only",
   "type": "module",
