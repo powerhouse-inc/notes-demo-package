@@ -1,6 +1,6 @@
 {
   "name": "@powerhousedao/notes-demo-package",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "AGPL-3.0-only",
   "type": "module",
   "private": false,
@@ -119,6 +119,5 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
-  "readme": "ERROR: No README data found!",
-  "_id": "@powerhousedao/notes-demo-package@1.0.4"
+  "readme": "ERROR: No README data found!"
 }
