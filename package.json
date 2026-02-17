@@ -63,12 +63,12 @@
     "service-unstartup": "bash ./node_modules/@powerhousedao/ph-cli/dist/scripts/service-unstartup.sh"
   },
   "dependencies": {
-    "@powerhousedao/builder-tools": "5.3.0-staging.5",
-    "@powerhousedao/common": "5.3.0-staging.5",
-    "@powerhousedao/design-system": "5.3.0-staging.5",
+    "@powerhousedao/builder-tools": "5.3.3",
+    "@powerhousedao/common": "5.3.3",
+    "@powerhousedao/design-system": "5.3.3",
     "@powerhousedao/document-engineering": "^1.39.0",
-    "@powerhousedao/vetra": "5.3.0-staging.5",
-    "document-model": "5.3.0-staging.5",
+    "@powerhousedao/vetra": "5.3.3",
+    "document-model": "5.3.3",
     "graphql": "^16.10.0",
     "graphql-tag": "^2.12.6",
     "luxon": "^3.7.2",
@@ -76,25 +76,25 @@
     "zod": "^4.3.5"
   },
   "devDependencies": {
-    "@openfeature/core": "^1.9.1",
     "@electric-sql/pglite": "^0.2.17",
     "@eslint/js": "^9.38.0",
+    "@openfeature/core": "^1.9.1",
     "@powerhousedao/analytics-engine-core": "^0.5.0",
-    "@powerhousedao/codegen": "5.3.0-staging.5",
-    "@powerhousedao/config": "5.3.0-staging.5",
-    "@powerhousedao/connect": "5.3.0-staging.5",
-    "@powerhousedao/ph-cli": "5.3.0-staging.5",
-    "@powerhousedao/reactor-api": "5.3.0-staging.5",
-    "@powerhousedao/reactor-browser": "5.3.0-staging.5",
-    "@powerhousedao/reactor-local": "5.3.0-staging.5",
+    "@powerhousedao/codegen": "5.3.3",
+    "@powerhousedao/config": "5.3.3",
+    "@powerhousedao/connect": "5.3.3",
+    "@powerhousedao/ph-cli": "5.3.3",
+    "@powerhousedao/reactor-api": "5.3.3",
+    "@powerhousedao/reactor-browser": "5.3.3",
+    "@powerhousedao/reactor-local": "5.3.3",
     "@powerhousedao/scalars": "staging",
-    "@powerhousedao/switchboard": "5.3.0-staging.5",
+    "@powerhousedao/switchboard": "5.3.3",
     "@tailwindcss/cli": "^4.1.4",
     "@testing-library/react": "^16.3.0",
     "@types/node": "^24.9.2",
     "@types/react": "^19.2.2",
     "@vitejs/plugin-react": "^5.1.0",
-    "document-drive": "5.3.0-staging.5",
+    "document-drive": "5.3.3",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
@@ -119,5 +119,7 @@
   "overrides": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@powerhousedao/notes-demo-package@1.0.4"
 }
